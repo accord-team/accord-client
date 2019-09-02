@@ -3,10 +3,11 @@
     <span translate>Witaj</span> {{user.email}}
     <span *ngIf="user.displayName"> ({{user.displayName}})</span>
   </div>
-  <div [@pageAnimations]>
-    <div *ngFor="let pokemon of tiles" class="tile">
-      <div>tile #{{pokemon.number}}</div>
-      <div>name: {{pokemon.name}}</div>
+  <div [@pageAnimations] class="tile-list">
+    <div *ngFor="let user of tiles" class="tile">
+      <div>user #{{user.id}}</div>
+      <div>name: {{user.first_name}} {{user.last_name}}</div>
+      <div>email: {{user.email}}</div>
     </div>
   </div>
 </section>

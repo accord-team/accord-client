@@ -1,13 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { trigger, transition, query, style, stagger, animate } from '@angular/animations';
 import { Apollo } from 'apollo-angular';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { AuthService } from 'services/auth/auth.service';
-import { allPokemons } from './pokemons.graphql';
-import { Response } from './pokemon';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -48,16 +45,6 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   ) {
     this.user = this.authService.user;
     this.tiles = [...new Array(9)].fill(0).map((x, i) => i);
-
-    /*this.testData$ = this.apollo.watchQuery<Response>({
-      query: allPokemons,
-      fetchPolicy: 'cache-and-network',
-      pollInterval: 5000,
-    })
-      .valueChanges
-      .pipe(
-        map(result => result.data.pokemons)
-      );*/
   }
 
   ngOnInit() {

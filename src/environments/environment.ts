@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   appName: 'Accord',
+  apiUrl: 'http://accord-api-test.herokuapp.com',
 };
 
 /*

@@ -7,7 +7,7 @@ import { User as UserModel } from 'resources/user/user';
 @Injectable()
 export class AuthService {
 
-  public authState$: Observable<boolean> = of(false);
+  public authState$: Observable<boolean> = of(true);
 
   constructor() {}
 

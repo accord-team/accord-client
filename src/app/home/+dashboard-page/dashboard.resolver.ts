@@ -3,23 +3,23 @@ import { Resolve } from '@angular/router';
 import { Apollo } from 'apollo-angular';
 import { Observable, of } from 'rxjs';
 import { delay, map, tap } from 'rxjs/operators';
-import { allPokemons } from './pokemons.graphql';
+import { allUsers } from './users.graphql';
 
-import { Pokemon, Response } from './pokemon';
+import { User } from 'types/user/user';
 
 @Injectable()
-export class DashboardResolver implements Resolve<Pokemon[]> {
+export class DashboardResolver implements Resolve<User.List> {
 
   constructor(
     public apollo: Apollo
   ) {}
 
-  resolve(): Observable<Pokemon[]> {
-    return this.apollo.query<Response>({
-      query: allPokemons,
+  resolve(): Observable<User.List> {
+    return this.apollo.query<User.Response>({
+      query: allUsers,
     })
       .pipe(
-        map(result => result.data.pokemons)
+        map(result => result.data.usersAll)
       );
   }
 

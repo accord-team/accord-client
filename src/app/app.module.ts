@@ -61,7 +61,7 @@ export class AppModule {
     public httpLink: HttpLink
   ) {
     apollo.create({
-      link: httpLink.create({uri: 'https://graphql-pokemon.now.sh/graphql'}),
+      link: httpLink.create({ uri: environment.apiUrl }),
       cache: new InMemoryCache(),
     });
   }
