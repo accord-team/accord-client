@@ -1,15 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule }  from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LocalizeRouterModule } from 'localize-router';
 import { Ng2DeviceDetectorModule } from 'ng2-device-detector';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFireModule, FirebaseOptionsToken } from 'angularfire2';
 import { ApolloModule, Apollo } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -33,9 +30,6 @@ const modules = [
   RouterModule.forRoot(appRoutes),
   LocalizeRouterModule.forRoot(appRoutes, localizeRouterConfig),
   TranslateModule.forRoot(translateConfig),
-  AngularFireModule.initializeApp(environment.firebaseConfig, 'weave'),
-  AngularFireDatabaseModule,
-  AngularFireAuthModule,
   ApolloModule,
   HttpLinkModule,
   CommonModule,
@@ -58,7 +52,6 @@ import { services } from 'app/services';
   providers: [
     ...guards,
     ...services,
-    { provide: FirebaseOptionsToken, useValue: environment.firebaseConfig }
   ],
   bootstrap: [ AppComponent ]
 })
