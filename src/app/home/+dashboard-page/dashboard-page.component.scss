@@ -1,0 +1,29 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include home-page;
+
+  width: 1000px;
+  margin: 0 auto;
+
+  section {
+    padding-top: 30px;
+
+    .greeting {
+      padding-bottom: 20px;
+    }
+
+    .tile {
+      display: inline-block;
+      width: 200px;
+      height: 150px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 2px;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+  }
+}

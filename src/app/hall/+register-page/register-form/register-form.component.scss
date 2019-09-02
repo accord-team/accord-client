@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include host-flex;
+
+  form {
+    width: 100%;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+}

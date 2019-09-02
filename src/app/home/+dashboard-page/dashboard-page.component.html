@@ -1,0 +1,12 @@
+<section>
+  <div class="greeting">
+    <span translate>Witaj</span> {{user.email}}
+    <span *ngIf="user.displayName"> ({{user.displayName}})</span>
+  </div>
+  <div [@pageAnimations]>
+    <div *ngFor="let pokemon of tiles" class="tile">
+      <div>tile #{{pokemon.number}}</div>
+      <div>name: {{pokemon.name}}</div>
+    </div>
+  </div>
+</section>

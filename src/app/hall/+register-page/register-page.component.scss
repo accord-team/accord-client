@@ -1,0 +1,16 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include hall-page;
+
+  margin: 0 35%;
+
+  section {
+    padding-top: 30px;
+
+    .register-box-header {
+      padding-bottom: 10px;
+    }
+  }
+}

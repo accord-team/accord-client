@@ -1,0 +1,277 @@
+@import 'variables';
+
+// for block components
+@mixin host {
+  display: block;
+  position: relative;
+}
+
+// for inline components
+@mixin host-inline {
+  display: inline-block;
+  position: relative;
+}
+
+// for flex components
+@mixin host-flex {
+  display: flex;
+  position: relative;
+}
+
+// default border for page content
+@mixin content-border {
+  width: 100%;
+  border: 1px solid $color-border;
+
+  .sm &, .sm :host &,
+  .xs &, .xs :host & {
+    border: 0;
+  }
+}
+
+// border for content
+@mixin content-border-full {
+  width: 100%;
+  border: 1px solid $color-border;
+
+  .sm &, .sm :host &,
+  .xs &, .xs :host & {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+// [24 35] default padding for page (usually bordered)
+@mixin content-padding {
+  width: 100%;
+  padding: 24px 35px;
+
+  .sm &, .sm :host & {
+    padding: 24px 0 24px 18px;
+  }
+
+  .xs &, .xs :host & {
+    padding: 24px 0 24px 8px;
+  }
+}
+
+// [28] default padding for page (usually bordered)
+@mixin content-padding-center {
+  width: 100%;
+  padding: 28px;
+
+  .sm &, .sm :host &,
+  .xs &, .xs :host & {
+    padding: 24px 48px;
+  }
+}
+
+// [30 35] wider padding for page (usually bordered)
+@mixin content-padding-wide {
+  padding: 30px 35px 30px 45px;
+
+  .sm &, .sm :host & {
+    padding: 16px 16px 24px 16px;
+  }
+
+  .xs &, .xs :host & {
+    padding: 16px 0 24px 16px;
+  }
+}
+
+@mixin content-height-full {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+@mixin full-size {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin full-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin home-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  position: relative;
+  margin-bottom: 50px;
+
+  .sm &, .sm :host &,
+  .xs &, .xs :host & {
+    width: 100%;
+  }
+}
+
+@mixin home-page-width {
+  margin-right: auto;
+  margin-left: auto;
+
+  .lg &, .lg :host &,
+  .md &, .md :host & {
+    width: $w-home-content;
+  }
+
+  .sm &, .sm :host &,
+  .xs &, .xs :host & {
+    width: 100%;
+  }
+}
+
+@mixin hall-page {
+  @include hall-page-width;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  position: relative;
+  padding: 0 45px;
+  background-color: $color-white;
+}
+
+@mixin hall-page-width {
+  margin-right: auto;
+  margin-left: auto;
+
+  .lg &, .lg :host &,
+  .md &, .md :host & {
+    width: $w-hall-content;
+  }
+
+  .sm &, .sm :host &,
+  .xs &, .xs :host & {
+    width: 100%;
+    min-width: 360px;
+    padding: 0 40px;
+
+    @media all and (max-width: 380px) {
+      padding: 0 30px 0 15px;
+    }
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin pink-disabled {
+  background-color: $color-pink-disabled;
+  border: 1px solid $color-pink-disabled;
+  color: $color-white;
+  cursor: default;
+}
+
+@mixin input-disabled {
+  background-color: transparent;
+  color: $color-disabled;
+  cursor: default;
+}
+
+@mixin wrap-lines() {
+  display: inline-block;
+  overflow: hidden;
+  word-break: break-all;
+  word-break: break-word;
+}
+
+@mixin position($position, $top: 0, $right: auto, $bottom: auto, $left: auto, $zindex: 0) {
+  position: $position;
+  z-index: $zindex;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin centered-absolute() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin centered-content() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin pad-children($length, $child: '', $amount: 10, $direction: left, $fluid: false) {
+  $oppositeDirection: if($direction == left, right, left);
+
+  @for $i from 1 through $amount {
+    @if $child {
+      &:nth-child(#{$i}) #{$child} {
+        @if $i < $amount or not $fluid {
+          #{$direction}: #{($i * $length) - $length};
+        } @else {
+          #{$direction}: auto;
+          #{$oppositeDirection}: 0;
+        }
+      }
+    } @else {
+      &:nth-child(#{$i}) {
+        @if $i < $amount or not $fluid {
+          #{$direction}: #{($i * $length) - $length};
+        } @else {
+          #{$direction}: auto;
+          #{$oppositeDirection}: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin triangle($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  @if ($direction == 'up') {
+    border-right: $size solid transparent;
+    border-bottom: 1.5 * $size solid $color;
+    border-left: $size +  solid transparent;
+  }
+  @else if ($direction == 'right') {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: 1.5 * $size solid $color;
+  }
+  @else if ($direction == 'down') {
+    border-top: 1.5 * $size solid $color;
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+  }
+  @else if ($direction == 'left') {
+    border-top: $size solid transparent;
+    border-right: 1.5 * $size solid $color;
+    border-bottom: $size solid transparent;
+  }
+}
+
+@mixin truncate() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin box-shadow() {
+  box-shadow: 1px 1px 10px $color-gray-8;
+}

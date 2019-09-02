@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include host-flex;
+
+  .glass-layer-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}

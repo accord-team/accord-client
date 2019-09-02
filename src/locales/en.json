@@ -1,0 +1,22 @@
+{
+  "Logowanie": "Log in",
+  "Rejestracja": "Registration",
+  "Login": "Login",
+  "Wpisz login": "Enter login",
+  "Hasło": "Password",
+  "Wpisz hasło": "Enter password",
+  "Imię": "First name",
+  "Wpisz imię": "Enter first name",
+  "Nazwisko": "Last name",
+  "Wpisz nazwisko": "Enter last name",
+  "Zaloguj": "Log in",
+  "Wyloguj": "Log out",
+  "To pole jest wymagane.": "This field is required.",
+  "To pole musi być poprawnym adresem email.": "This field should be valid email address.",
+  "To pole musi być dłuższe niż {{ requiredLength }}.": "This field should be longer than {{ requiredLength }} chars.",
+  "To pole musi być krótsze niż {{ requiredLength }}.": "This field should be shorter than {{ requiredLength }} chars.",
+  "There is no user record corresponding to this identifier. The user may have been deleted.": "There is no user record corresponding to this identifier. The user may have been deleted.",
+  "Witaj": "Hello",
+  "Dashboard": "Dashboard",
+  "Profil": "Profile"
+}

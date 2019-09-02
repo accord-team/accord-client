@@ -1,0 +1,16 @@
+<section>
+  <div class="register-box-header">
+    <span translate>Rejestracja</span>
+  </div>
+  <app-register-form 
+    [loading]="loading"
+    [error]="error"
+    (onSubmit)="onSubmit($event)">
+  </app-register-form>
+</section>
+<section>
+  <a [routerLink]="['/hall/login']">
+    <span translate>Logowanie</span>
+  </a>
+</section>
+

@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include host-flex;
+
+  /deep/ mat-form-field {
+    width: 100%;
+    
+    .mat-form-field {
+      &-underline {
+        position: static;
+      }
+      &-subscript-wrapper {
+        position: static;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include host-flex;
+
+  .fluid {
+    width: 100%;
+
+    /deep/ .mat-button-wrapper {
+      padding: 10px;
+    }
+  }
+
+  /deep/ .mat-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-spinner {
+      position: absolute;
+    }
+  }
+}

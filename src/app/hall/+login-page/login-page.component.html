@@ -1,0 +1,15 @@
+<section>
+  <div class="login-box-header">
+    <span translate>Logowanie</span>
+  </div>
+  <app-login-form 
+    [loading]="loading"
+    [error]="error"
+    (onSubmit)="onSubmit($event)">
+  </app-login-form>
+</section>
+<section>
+  <a [routerLink]="['/hall/register']">
+    <span translate>Rejestracja</span>
+  </a>
+</section>

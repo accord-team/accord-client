@@ -1,0 +1,38 @@
+<form 
+  [formGroup]="formGroup" 
+  (ngSubmit)="onFormSubmit()">
+  <section>
+    <app-input-basic
+      [label]="'Login'"
+      [placeholder]="'Wpisz login'"
+      [control]="formGroup.get('login')"
+      [error]="error">
+    </app-input-basic>
+
+    <app-input-password
+      [label]="'Hasło'"
+      [placeholder]="'Wpisz hasło'"
+      [control]="formGroup.get('password')">
+    </app-input-password>
+
+    <app-input-basic
+      [label]="'Imię'"
+      [placeholder]="'Wpisz imię'"
+      [control]="formGroup.get('firstName')">
+    </app-input-basic>
+
+    <app-input-basic
+      [label]="'Nazwisko'"
+      [placeholder]="'Wpisz nazwisko'"
+      [control]="formGroup.get('lastName')">
+    </app-input-basic>
+
+    <app-loader-button
+      [type]="'submit'"
+      [loading]="loading"
+      [fluid]="true"
+      [disabled]="!formGroup.valid">
+      <span translate>Zaloguj</span>
+    </app-loader-button>
+  </section>
+</form>

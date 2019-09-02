@@ -1,0 +1,45 @@
+@import 'mixins';
+@import 'common';
+
+:host {
+  @include host;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  background-position: top center;
+  background-size: cover;
+}
+
+.mat-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-sidenav {
+  width: 300px;
+  padding: 10px;
+}
+
+.mat-sidenav-container {
+  height: 100%;
+}
+
+.menu-button {
+  margin-right: 10px;
+}
+
+.home-content {
+  max-height: calc(100vh - 64px);
+  margin-top: 64px;
+  overflow-y: auto;
+}

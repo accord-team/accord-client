@@ -1,0 +1,9 @@
+<section>
+  <div class="greeting">
+    <span translate>Witaj</span> {{user.email}}
+    <span *ngIf="user.displayName"> ({{user.displayName}})</span>
+  </div>
+  <div [@pageAnimations]>
+    <div *ngFor="let i of tiles" class="tile">tile #{{i}}</div>
+  </div>
+</section>

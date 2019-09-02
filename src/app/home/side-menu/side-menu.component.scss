@@ -1,0 +1,31 @@
+@import 'mixins';
+@import 'common';
+
+:host {
+  @include host;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.mat-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-sidenav {
+  width: 300px;
+  padding: 10px;
+}
+
+.mat-sidenav-container {
+  height: 100%;
+}
+
+.menu-button {
+  margin-right: 10px;
+}

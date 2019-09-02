@@ -1,0 +1,27 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "../out-tsc/app",
+    "types": [],
+    "paths": {
+      "components/*": ["app/common/components/*"],
+      "configs/*": ["app/common/configs/*"],
+      "constants/*": ["app/common/constants/*"],
+      "directives/*": ["app/common/directives/*"],
+      "decorators/*": ["app/common/decorators/*"],
+      "pipes/*": ["app/common/pipes/*"],
+      "resources/*": ["app/common/resources/*"],
+      "services/*": ["app/common/services/*"],
+      "types/*": ["app/common/types/*"],
+      "utils/*": ["app/common/utils/*"],
+      "validators/*": ["app/common/validators/*"],
+      "shared/*": ["app/shared/*"],
+      "environments/*": ["environments/*"]
+    }
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

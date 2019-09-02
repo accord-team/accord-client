@@ -1,0 +1,14 @@
+<button
+  mat-stroked-button
+  [ngClass]="{fluid: fluid}"
+  [color]="color"
+  [type]="type"
+  [disabled]="disabled || loading">
+  <mat-spinner
+    *ngIf="loading"
+    [diameter]="fluid ? 25 : 20"
+    [color]="color"
+    [mode]="'indeterminate'">
+  </mat-spinner>
+  <ng-content></ng-content>
+</button>
